@@ -40,7 +40,7 @@ class Client {
         });
     }
 
-    _request(method = "GET", endpoint, options) {
+    _request(method = "GET", endpoint, options = {}) {
         const request = new Snekfetch(method, `${this.baseURL}/${endpoint}`, {
             headers: { "User-Agent": this.userAgent, Authorization: this.token || "" },
             query: options.query || {},
