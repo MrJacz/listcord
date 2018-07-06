@@ -4,7 +4,8 @@
   "description": "A listcord.com API wrapper",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint src",
+    "lint": "eslint --fix src"
   },
   "repository": {
     "type": "git",
