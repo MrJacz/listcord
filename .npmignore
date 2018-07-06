@@ -17,3 +17,5 @@ jspm_packages
 .travis.yml
 package-lock.json
 .eslintignore
+.gitattributes
+README.md
