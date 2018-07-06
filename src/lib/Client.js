@@ -1,5 +1,7 @@
 const Snekfetch = require("snekfetch");
 const Package = require("../../package.json");
+const Bot = require("./structures/Bot");
+const Vote = require("./structures/Vote");
 
 class Client {
 
@@ -18,16 +20,18 @@ class Client {
         this.userAgent = options.userAgent ? options.userAgent : `Listcord v${Package.version} (${Package.homepage})`;
     }
 
-    getBots(sortType = "votes", limit = "g0", offset = "0") {
-        return this._request("GET", `bots/${sortType}/${limit}/${offset}`);
+    getBots(sortType = "votes", limit = "50", offset = "0", search) {
+        return this._request("GET", `bots/${sortType}/${limit}/${offset}`, {
+            query: { q: search }
+        });
     }
 
     getBot(botId) {
-        return this._request("GET", `bot/${botId}`);
+        return this._request("GET", `bot/${botId}`).then(bot => new Bot(bot));
     }
 
     getVotes(botId) {
-        return this._request("GET", `bot/${botId}/votes`);
+        return this._request("GET", `bot/${botId}/votes`).then(votes => votes.map(vote => new Vote(vote)));
     }
 
     postStats(botId, guilds, shards) {
