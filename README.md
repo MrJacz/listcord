@@ -1,2 +1,2 @@
 # listcord
-A API wrapper for listcord.com 
+An API wrapper for Listcord.com.
