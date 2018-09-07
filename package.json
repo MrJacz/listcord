@@ -23,7 +23,7 @@
   "devDependencies": {
     "eslint": "^5.0.1",
     "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^3.8.0"
+    "eslint-plugin-promise": "^4.0.1"
   },
   "dependencies": {
     "snekfetch": "^4.0.4"
